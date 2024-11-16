@@ -13,10 +13,14 @@ class Program
 
         Ucak ucak2 = new Ucak(baslangic);
 
-        ucak.KartPuaniGoster();
+        Sida fikrateyn = new Sida(baslangic);
 
-        ucak.DurumGuncelle(ucak2.Vurus);
-        ucak.DurumGuncelle(ucak2.Vurus);
+        fikrateyn.DurumGuncelle(10);
+
+        //ucak.KartPuaniGoster();
+
+        //ucak.DurumGuncelle(ucak2.Vurus);
+        //ucak.DurumGuncelle(ucak2.Vurus);
 
         if ("merhaba" == "merhaba")
         {

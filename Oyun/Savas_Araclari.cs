@@ -31,6 +31,12 @@ namespace Main
         {
             SeviyePuani = seviyePuani;
         }
+        public override void DurumGuncelle(int vurduguHasar)
+        {
+            Dayaniklilik -= vurduguHasar;
+            SeviyePuani += vurduguHasar;
+            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
+        }
     }
 
     // Uçak Sınıfı
@@ -46,12 +52,7 @@ namespace Main
         public Ucak(int seviyePuani) : base(seviyePuani) { }
 
         // Durum güncelleme
-        public override void DurumGuncelle(int vurduguHasar)
-        {
-            Dayaniklilik -= vurduguHasar;
-            SeviyePuani += vurduguHasar;
-            Console.WriteLine($"Uçak Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
-        }
+        
     }
 
     // SİHA Sınıfı
@@ -67,12 +68,7 @@ namespace Main
         public Siha(int seviyePuani) : base(seviyePuani) { }
 
         // Durum güncelleme
-        public override void DurumGuncelle(int vurduguHasar)
-        {
-            Dayaniklilik -= vurduguHasar;
-            SeviyePuani += vurduguHasar;
-            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
-        }
+        
     }
 
     // Abstract Kara Araçları Sınıfı
@@ -84,6 +80,12 @@ namespace Main
         protected Kara_Araclari(int seviyePuani)
         {
             SeviyePuani = seviyePuani;
+        }
+        public override void DurumGuncelle(int vurduguHasar)
+        {
+            Dayaniklilik -= vurduguHasar;
+            SeviyePuani += vurduguHasar;
+            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
         }
     }
 
@@ -99,12 +101,7 @@ namespace Main
         public Obus(int seviyePuani) : base(seviyePuani) { }
 
         // Durum güncelleme
-        public override void DurumGuncelle(int vurduguHasar)
-        {
-            Dayaniklilik -= vurduguHasar;
-            SeviyePuani += vurduguHasar;
-            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
-        }
+        
     }
 
     // KFS Sınıfı
@@ -120,12 +117,7 @@ namespace Main
 
 
         // Durum güncelleme
-        public override void DurumGuncelle(int vurduguHasar)
-        {
-            Dayaniklilik -= vurduguHasar;
-            SeviyePuani += vurduguHasar;
-            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
-        }
+        
     }
 
     // Abstract Deniz Araçları Sınıfı
@@ -137,6 +129,12 @@ namespace Main
         protected Deniz_Araclari(int seviyePuani)
         {
             SeviyePuani = seviyePuani;
+        }
+        public override void DurumGuncelle(int vurduguHasar)
+        {
+            Dayaniklilik -= vurduguHasar;
+            SeviyePuani += vurduguHasar;
+            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
         }
     }
 
@@ -153,12 +151,7 @@ namespace Main
 
 
         // Durum güncelleme
-        public override void DurumGuncelle(int vurduguHasar)
-        {
-            Dayaniklilik -= vurduguHasar;
-            SeviyePuani += vurduguHasar;
-            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
-        }
+        
     }
 
     // SİDA Sınıfı
@@ -174,11 +167,6 @@ namespace Main
 
 
         // Durum güncelleme
-        public override void DurumGuncelle(int vurduguHasar)
-        {
-            Dayaniklilik -= vurduguHasar;
-            SeviyePuani += vurduguHasar;
-            Console.WriteLine($"{AltSinif} Durumu Güncellendi: Dayaniklilik = {Dayaniklilik}, SeviyePuani = {SeviyePuani}");
-        }
+        
     }
 }
