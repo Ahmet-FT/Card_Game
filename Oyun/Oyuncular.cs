@@ -67,11 +67,31 @@ namespace Main
 
             Random random = new Random();
             int index;
-            do
-            {
-                index = random.Next(0, KartListesi.Count);
-            } while (!(0 <= index && index < KartListesi.Count));
 
+            bool hepsi_secili = true;
+
+            foreach (var kart in KartListesi)
+            {
+                if (!kart.Secilmis)
+                {
+                    hepsi_secili = false;
+                    break;
+                }
+            }
+            if (hepsi_secili)
+            {
+                do
+                {
+                    index = random.Next(0, KartListesi.Count);
+                } while (!(0 <= index && index < KartListesi.Count));
+            }
+            else
+            {
+                do
+                {
+                    index = random.Next(0, KartListesi.Count);
+                } while (!(0 <= index && index < KartListesi.Count) || KartListesi[index].Secilmis);
+            }
 
 
             Savas_Araclari secilenKart = KartListesi[index];
@@ -105,14 +125,38 @@ namespace Main
             Console.WriteLine("Kartlarınız:");
             for (int i = 0; i < KartListesi.Count; i++)
             {
-                Console.WriteLine($"{i + 1}: {KartListesi[i].AltSinif}, \nSinif: {KartListesi[i].Sinif}, \nDayaniklilik: {KartListesi[i].Dayaniklilik}, \nAvantaj: {KartListesi[i]} {KartListesi[i].VurusAvantaji}\n");
+                Console.WriteLine($"{i + 1}: {KartListesi[i].AltSinif}, \nSinif: {KartListesi[i].Sinif}, \nDayaniklilik: {KartListesi[i].Dayaniklilik}, \nAvantaj: {KartListesi[i].Avantaj} {KartListesi[i].VurusAvantaji}\n");
             }
 
             Console.Write("Seçmek istediğiniz kartın numarasını girin: ");
             int secim;
-            while (!int.TryParse(Console.ReadLine(), out secim) || secim < 1 || secim > KartListesi.Count)
+
+            bool hepsi_secili = true;
+
+            foreach (var kart in KartListesi)
             {
-                Console.Write("Geçerli bir seçim yapın: ");
+                if (!kart.Secilmis)
+                {
+                    hepsi_secili = false;
+                    break;
+                }
+            }
+
+            if (hepsi_secili)
+            {
+                while (!int.TryParse(Console.ReadLine(), out secim) || secim < 1 || secim > KartListesi.Count)
+                {
+                    Console.Write("Geçerli bir seçim yapın: ");
+                }
+            }
+            else
+            {
+                while (!int.TryParse(Console.ReadLine(), out secim) || secim < 1 || secim > KartListesi.Count || KartListesi[secim - 1].Secilmis)
+                {
+                    Console.Write("Geçerli bir seçim yapın: ");
+                    Console.Write("Daha once secmediginiz bir kart secin: ");
+
+                }
             }
 
             Savas_Araclari secilenKart = KartListesi[secim - 1];
